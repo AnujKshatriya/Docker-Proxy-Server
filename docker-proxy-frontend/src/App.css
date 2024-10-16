@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #1e1e1e;
+  --card-bg-color: #2c2c2c;
+  --text-color: #f5f5f5;
+  --accent-color: #4caf50;
+  --delete-color: #e53935;
+  --border-color: #3a3a3a;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+.container-form {
+  justify-content: center;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 30px;
+}
+
+.container-form input {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+}
+
+.container-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.container-form button:hover {
+  background-color: #17ee21;
+}
+
+
+h1 {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.container-list {
+  width: 60vw;
+}
+
+.container-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+}
+
+.container-info {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-info h2 {
+  min-width: 150px;
+  margin: 0 0 5px;
+  color: var(--accent-color);
+}
+
+.container-info p {
+  margin: 0;
+}
+
+.container-actions {
+  display: flex;
+  flex: 1;
+  gap: 40px;
+  justify-content: flex-end;
+}
+
+.container-actions a,
+.container-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  color: var(--text-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.container-actions a {
+  background-color: var(--accent-color);
+}
+
+.container-actions a:hover {
+  background-color: #1b731f;
+}
+
+.container-actions button {
+  background-color: var(--delete-color);
+}
+
+.container-actions button:hover {
+  background-color: #8a1616;
+}
