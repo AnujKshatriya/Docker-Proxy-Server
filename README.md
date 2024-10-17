@@ -1,4 +1,4 @@
-# Docker Reverse Proxy with React Frontend
+# Docker Reverse Proxy Service
 
 This project provides a simple reverse proxy server using Docker, with a React frontend for container management. It also allows users to list, create, and delete Docker containers, and it uses Socket.IO for real-time updates.
 
@@ -32,19 +32,17 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone <your-repo-url>
-   cd <your-repo-directory>
+   git clone https://github.com/AnujKshatriya/Docker-Proxy-Server/
+   cd Docker-Proxy-Server
    ```
 Build and run the application using Docker Compose:
 
 ```bash
-Copy code
 docker-compose up --build
 ```
 This command will:
-
-Build the Docker images for both the frontend and backend.
-Start the application, exposing the frontend on http://localhost:5173 and the reverse proxy management server on http://localhost:8080.
+1. Build the Docker images for both the frontend and backend.
+2. Start the application, exposing the frontend on http://localhost:5173 and the reverse proxy management server on http://localhost:8080.
 
 ## Usage
 
@@ -74,4 +72,4 @@ Copy code
 ```
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
