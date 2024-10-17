@@ -20,6 +20,7 @@
     "cors": "^2.8.5",
     "dockerode": "^4.0.2",
     "express": "^4.21.1",
-    "http-proxy": "^1.18.1"
+    "http-proxy": "^1.18.1",
+    "socket.io": "^4.8.0"
   }
 }

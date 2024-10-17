@@ -1,11 +1,11 @@
-name : reverse-proxy
+version: '3.8'  # Updated version
 
 services:
   reverse-proxy-app:
     build: 
       context: .
       dockerfile: Dockerfile.dev
-    command : npm run dev
+    command: npm run dev
     ports:
       - "8080:8080"
       - "80:80"
@@ -13,3 +13,12 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/app
+
+  frontend-app:
+    build:
+      context: ./docker-proxy-frontend
+      dockerfile: Dockerfile 
+    ports:
+      - "5173:5173"  # Expose frontend on port 5173
+    depends_on:
+      - reverse-proxy-app

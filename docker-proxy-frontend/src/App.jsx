@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import io from 'socket.io-client';
 import ContainerList from './components/ContainerList';
 import "./App.css";
 
@@ -41,7 +42,26 @@ function App() {
   
 
   useEffect(() => {
+    // Connect to the Socket.IO server
+    const socket = io('http://localhost:8080');
+
+    // Fetch the initial list of containers
     fetchContainers();
+
+    // Listen for real-time updates
+    socket.on('container-started', (containerData) => {
+      setContainers((prevContainers) => [...prevContainers, containerData]);
+    });
+
+    socket.on('container-stopped', ({ containerName }) => {
+      setContainers((prevContainers) =>
+        prevContainers.filter((container) => container.containerName !== containerName)
+      );
+    });
+
+    return () => {
+      socket.disconnect(); // Cleanup when component unmounts
+    };
   }, []);
 
   const fetchContainers = async () => {
