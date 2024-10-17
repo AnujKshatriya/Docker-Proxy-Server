@@ -1,5 +1,6 @@
 const http = require('http');
 const express = require('express');
+const cors = require('cors')
 const Dockerode = require('dockerode');
 const httpProxy = require('http-proxy')
 
@@ -51,7 +52,7 @@ docker.getEvents((err,stream)=>{
                 }
 
                 console.log(`Registering ${containerName}.localhost ---> http://${ipAddress}:${defaultPort}`);
-                db.set(containerName, { containerName, ipAddress, defaultPort });
+                db.set(containerName, { containerName, ipAddress, defaultPort, createdAt: new Date().toISOString() });
             }
 
         } catch (error) {
@@ -93,6 +94,9 @@ const managementAPI = express();
 
 managementAPI.use(express.json());
 managementAPI.use(express.urlencoded({ extended: true }));
+managementAPI.use(cors({
+    origin: 'http://localhost:5173'
+}));
 
     // POST request to create and start a container
 managementAPI.post("/containers", async (req, res) => {
@@ -146,14 +150,13 @@ managementAPI.post("/containers", async (req, res) => {
             defaultPort = port;
         }
     }
-
-    db.set(containerName, { containerName, ipAddress, defaultPort });
+    const currentTime = new Date().toISOString();
+    db.set(containerName, { containerName, ipAddress, defaultPort, createdAt: currentTime });
 
     return res.json({
         status: "success",
         container: `${containerName}.localhost`,
-        ipAddress,
-        defaultPort
+        createdAt: currentTime,
     });
 });
 

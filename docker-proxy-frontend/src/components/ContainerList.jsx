@@ -7,12 +7,12 @@ function ContainerList({ containers, deleteContainer }) {
                 <div key={container.containerName} className="container-item">
                     <div className="container-info">
                         <h2>{container.containerName}</h2>
-                        <p>IP: {container.ipAddress}</p>
-                        <p>Port: {container.defaultPort}</p>
+                        <p>URL: <span className="url">{`http://${container.containerName}.localhost`}</span></p>
+                        <p>Created At: {new Date(container.createdAt).toLocaleString()}</p>
                     </div>
                     <div className="container-actions">
                         <a 
-                            href={`http://${container.ipAddress}:${container.defaultPort}`} 
+                            href={`http://${container.containerName}.localhost`} 
                             target="_blank" 
                             rel="noopener noreferrer"
                         >

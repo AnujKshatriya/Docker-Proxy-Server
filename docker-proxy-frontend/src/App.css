@@ -12,11 +12,8 @@ body {
   color: var(--text-color);
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 10vw;
 }
 
 .App {
@@ -28,7 +25,8 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .container-form input {
@@ -37,6 +35,8 @@ body {
   border-radius: 5px;
   background-color: var(--card-bg-color);
   color: var(--text-color);
+  flex: 1;
+  min-width: 180px;
 }
 
 .container-form button {
@@ -46,12 +46,12 @@ body {
   background-color: var(--accent-color);
   color: var(--text-color);
   cursor: pointer;
+  flex: 1;
 }
 
 .container-form button:hover {
-  background-color: #17ee21;
+  background-color: #1b731f;
 }
-
 
 h1 {
   color: white;
@@ -59,17 +59,19 @@ h1 {
 }
 
 .container-list {
-  width: 60vw;
+  width: 100%;
 }
 
 .container-item {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap:60px;
   align-items: center;
   background-color: var(--card-bg-color);
   border: 1px solid var(--border-color);
   padding: 20px;
-  margin: 10px 0;
+  margin: 20px 0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: var(--text-color);
@@ -77,14 +79,12 @@ h1 {
 
 .container-info {
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   flex: 1;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .container-info h2 {
-  min-width: 150px;
-  margin: 0 0 5px;
   color: var(--accent-color);
 }
 
@@ -95,8 +95,9 @@ h1 {
 .container-actions {
   display: flex;
   flex: 1;
-  gap: 40px;
+  gap: 20px;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .container-actions a,
@@ -108,6 +109,7 @@ h1 {
   cursor: pointer;
   text-decoration: none;
   transition: background-color 0.3s;
+  width: 100%;
 }
 
 .container-actions a {
@@ -124,4 +126,27 @@ h1 {
 
 .container-actions button:hover {
   background-color: #8a1616;
+}
+
+@media (min-width: 768px) {
+  .container-item {
+    flex-direction: row;
+  }
+
+  .container-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 3;
+  }
+
+  .container-info h2, .container-info p {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width:600px) {
+  .container-item {
+    gap: 10px;
+  }
 }
