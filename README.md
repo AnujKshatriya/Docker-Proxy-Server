@@ -1,6 +1,6 @@
 # Docker Reverse Proxy Service
 
-This project provides a simple reverse proxy server using Docker, with a React frontend for container management. It also allows users to list, create, and delete Docker containers, and it uses Socket.IO for real-time updates.
+This project provides a reverse proxy for Docker containers, along with a React frontend for container management. In addition to proxying, it allows users to list, create, and stop Docker containers, with real-time updates powered by Socket.IO..
 
 ## Table of Contents
 
@@ -56,7 +56,7 @@ This command will:
 
 3. Managing Containers:
   • The list of running containers will be displayed.
-  • You can delete a container by clicking the "Delete" button next to it.
+  • You can Stop a container by clicking the "Stop" button next to it.
 
 ## Directory Structure
 ```bash
