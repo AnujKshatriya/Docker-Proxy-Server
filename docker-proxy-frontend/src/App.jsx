@@ -30,7 +30,6 @@ function App() {
   
       if (response.ok) {
         const data = await response.json();
-        console.log(data)
         setContainers([...containers, { containerName: data.container.split('.')[0], createdAt: data.createdAt }]);
       } else {
         console.error("Failed to create container:", data.message);

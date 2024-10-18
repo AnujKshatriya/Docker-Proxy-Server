@@ -201,7 +201,7 @@ managementAPI.delete('/containers/:name', async (req, res) => {
     const { name } = req.params;
 
     if (removalInProgress.has(name)) {
-        console.log(`Container removal in progress for: ${name}`);
+        console.log(`Container stopping in progress for: ${name}`);
         return res.status(409).json({ status: 'error', message: 'Container removal is already in progress' });
     }
 
@@ -215,15 +215,15 @@ managementAPI.delete('/containers/:name', async (req, res) => {
             return res.status(404).json({ status: 'error', message: 'Container not found' });
         }
 
-        console.log(`Stopping and removing container: ${name}`);
+        console.log(`Stopping the container: ${name}`);
 
         await container.stop();
         db.delete(name);
 
-        return res.json({ status: 'success', message: `Container ${name} stopped and removed` });
+        return res.json({ status: 'success', message: `Container ${name} stopped` });
     } catch (error) {
         console.error('Error stopping/removing container:', error);
-        return res.status(500).json({ status: 'error', message: 'Failed to stop/remove container' });
+        return res.status(500).json({ status: 'error', message: 'Failed to stop container' });
     } finally {
         removalInProgress.delete(name);
     }

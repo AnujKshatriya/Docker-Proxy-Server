@@ -19,7 +19,7 @@ function ContainerList({ containers, deleteContainer }) {
                             Access
                         </a>
                         <button onClick={() => deleteContainer(container.containerName)}>
-                            Delete
+                            Stop
                         </button>
                     </div>
                 </div>
