@@ -31,17 +31,22 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/AnujKshatriya/Docker-Proxy-Server/
-   cd Docker-Proxy-Server
-   ```
-Build and run the application using Docker Compose:
+```bash
+git clone https://github.com/AnujKshatriya/Docker-Proxy-Server/
+cd Docker-Proxy-Server
+```
+2. **Build the application:**
+
+```bash
+npm install
+```
+3. **Build and run the application using Docker Compose:**
 
 ```bash
 docker-compose up --build
 ```
 This command will:
-1. Build the Docker images for both the frontend and backend.
+1. Build the Docker images for both the frontend and backend, installing neccessary dependency to run backend.
 2. Start the application, exposing the frontend on http://localhost:5173 and the reverse proxy management server on http://localhost:8080.
 
 ## Usage
